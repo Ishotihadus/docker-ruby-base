@@ -1,6 +1,7 @@
 FROM debian:bullseye-slim
 
-ARG MAKE_OPTIONS=-j4
+ARG MAKE_OPTIONS_JEMALLOC
+ARG MAKE_OPTIONS_RUBY
 
 ENV \
   GEM_HOME=/usr/local/bundle \
@@ -51,7 +52,7 @@ RUN set -eux && \
   cd /tmp && \
   curl -L https://github.com/jemalloc/jemalloc/releases/download/5.3.0/jemalloc-5.3.0.tar.bz2 | tar xjf - && \
   cd /tmp/jemalloc-5.3.0 && \
-  ./configure --disable-doc --disable-static --disable-stats && make install $MAKE_OPTIONS && \
+  ./configure --disable-doc --disable-static --disable-stats && make install $MAKE_OPTIONS_JEMALLOC && \
   cd / && rm -rf /tmp/jemalloc-5.3.0 && \
   ldconfig -v && \
   \
@@ -65,7 +66,7 @@ RUN set -eux && \
   autoconf && \
   gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" && \
   ./configure --build="$gnuArch" --with-jemalloc --disable-install-doc --enable-shared --enable-yjit --disable-install-static-library && \
-  make install $MAKE_OPTIONS && \
+  make install $MAKE_OPTIONS_RUBY && \
   cd / && rm -rf /tmp/ruby-3.2.0-preview2 && \
   ldconfig -v && \
   \

@@ -1,6 +1,6 @@
 FROM ishotihadus/ruby:latest
 
-ARG MAKE_OPTIONS=-j4
+ARG MAKE_OPTIONS
 
 RUN set -eux && \
   \
@@ -23,8 +23,8 @@ RUN set -eux && \
   cd /tmp/ImageMagick-7.1.0-52 && \
   ./configure --enable-shared --with-modules --with-jemalloc --disable-docs && \
   make install $MAKE_OPTIONS && \
-  ldconfig -v && \
   cd / && rm -rf /tmp/ImageMagick-7.1.0-52 && \
+  ldconfig -v && \
   \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
   apt-get clean -y && rm -rf /var/lib/apt/lists/*

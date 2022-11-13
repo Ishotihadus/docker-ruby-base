@@ -25,6 +25,9 @@ jobs:
         with:
           context: .
           file: Dockerfile
+          build-args: |
+            MAKE_OPTIONS_JEMALLOC=-j8
+            MAKE_OPTIONS_RUBY=-j4
           push: true
           tags: ishotihadus/ruby:latest
   ruby-mysql:
@@ -150,6 +153,8 @@ jobs:
         with:
           context: .
           file: Dockerfile_rmagick
+          build-args: |
+            MAKE_OPTIONS=-j4
           push: true
           tags: ishotihadus/ruby:latest
   ruby-rmagick-gnuplot:
