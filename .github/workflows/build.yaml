@@ -1,7 +1,7 @@
 name: Build and push
 on:
-  push:
-    branches: [main]
+  release:
+    branches: [published]
 jobs:
   ruby:
     name: build ishotihadus/ruby
@@ -44,7 +44,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_mysql
-          key: ${{ hashFiles('Dockerfile_mysql') }}
+          key: ${{ hashFiles('Dockerfile', Dockerfile_mysql') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
@@ -69,7 +69,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_node
-          key: ${{ hashFiles('Dockerfile_node') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_node') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
@@ -94,7 +94,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_rapidjson
-          key: ${{ hashFiles('Dockerfile_rapidjson') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
@@ -119,7 +119,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_rapidjson_mysql
-          key: ${{ hashFiles('Dockerfile_rapidjson_mysql') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson', 'Dockerfile_rapidjson_mysql') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
@@ -144,7 +144,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_rmagick
-          key: ${{ hashFiles('Dockerfile_rmagick') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
@@ -169,7 +169,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_rmagick_gnuplot
-          key: ${{ hashFiles('Dockerfile_rmagick_gnuplot') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
