@@ -47,7 +47,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: Dockerfile_mysql
-          key: ${{ hashFiles('Dockerfile', Dockerfile_mysql') }}
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_mysql') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         uses: docker/build-push-action@v3
         with:
