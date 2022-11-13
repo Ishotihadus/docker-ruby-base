@@ -1,0 +1,12 @@
+FROM ishotihadus/ruby:latest
+
+RUN set -eux && \
+  \
+  apt-get -y update && apt-get -y upgrade && \
+  apt-get -y install --no-install-recommends curl && \
+  \
+  curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && \
+  apt-get -y install --no-install-recommends nodejs && \
+  \
+  apt-get -y purge --auto-remove -o APT::AutoRemove::RecommendsImportant=false curl && \
+  apt-get -y clean && rm -rf /var/lib/apt/lists/*

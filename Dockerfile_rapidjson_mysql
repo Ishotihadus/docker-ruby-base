@@ -1,0 +1,12 @@
+FROM ishotihadus/ruby-rapidjson:latest
+
+RUN set -eux && \
+  \
+  apt-get update -y && apt-get upgrade -y && \
+  apt-get install -y --no-install-recommends curl && \
+  \
+  curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --mariadb-server-version=mariadb-10.6 && \
+  apt-get install -y --no-install-recommends libmariadbclient-dev && \
+  \
+  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false curl && \
+  apt-get clean -y && rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,16 @@
+FROM ishotihadus/ruby:latest
+
+RUN set -eux && \
+  \
+  apt-get -y update && apt-get -y upgrade && \
+  apt-get -y install --no-install-recommends git && \
+  \
+  git clone https://github.com/Tencent/rapidjson /tmp/rapidjson && \
+  cp -r /tmp/rapidjson/include/rapidjson /usr/include && \
+  rm -rf /tmp/rapidjson && \
+  \
+  bundle config build.usamin --rapidjson-is-head && \
+  bundle config build.usamin-js --rapidjson-is-head && \
+  \
+  apt-get -y purge --auto-remove -o APT::AutoRemove::RecommendsImportant=false git && \
+  apt-get -y clean && rm -rf /var/lib/apt/lists/*

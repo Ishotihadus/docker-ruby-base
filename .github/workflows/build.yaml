@@ -1,0 +1,158 @@
+name: Build and push
+on:
+  push:
+    branches: [main]
+jobs:
+  ruby:
+    name: build ishotihadus/ruby
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile
+          key: ${{ hashFiles('Dockerfile') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-mysql:
+    name: build ishotihadus/ruby-mysql
+    runs-on: ubuntu-latest
+    needs: ruby
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_mysql
+          key: ${{ hashFiles('Dockerfile_mysql') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_mysql
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-node:
+    name: build ishotihadus/ruby-node
+    runs-on: ubuntu-latest
+    needs: ruby
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_node
+          key: ${{ hashFiles('Dockerfile_node') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_node
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-rapidjson:
+    name: build ishotihadus/ruby-rapidjson
+    runs-on: ubuntu-latest
+    needs: ruby
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_rapidjson
+          key: ${{ hashFiles('Dockerfile_rapidjson') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_rapidjson
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-rapidjson-mysql:
+    name: build ishotihadus/ruby-rapidjson-mysql
+    runs-on: ubuntu-latest
+    needs: ruby-rapidjson
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_rapidjson_mysql
+          key: ${{ hashFiles('Dockerfile_rapidjson_mysql') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_rapidjson_mysql
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-rmagick:
+    name: build ishotihadus/ruby-rmagick
+    runs-on: ubuntu-latest
+    needs: ruby
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_rmagick
+          key: ${{ hashFiles('Dockerfile_rmagick') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_rmagick
+          push: true
+          tags: ishotihadus/ruby:latest
+  ruby-rmagick-gnuplot:
+    name: build ishotihadus/ruby-rmagick-gnuplot
+    runs-on: ubuntu-latest
+    needs: ruby-rmagick
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_rmagick_gnuplot
+          key: ${{ hashFiles('Dockerfile_rmagick_gnuplot') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_rmagick_gnuplot
+          push: true
+          tags: ishotihadus/ruby:latest
