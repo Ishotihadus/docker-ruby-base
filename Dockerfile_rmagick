@@ -1,5 +1,7 @@
 FROM ishotihadus/ruby:latest
 
+ARG MAKE_OPTIONS=-j4
+
 RUN set -eux && \
   \
   apt-get -y update && \
@@ -20,7 +22,7 @@ RUN set -eux && \
   curl -L https://imagemagick.org/download/ImageMagick-7.1.0-52.tar.gz | tar xzf - && \
   cd /tmp/ImageMagick-7.1.0-52 && \
   ./configure --enable-shared --with-modules --with-jemalloc --disable-docs && \
-  make install && \
+  make install $MAKE_OPTIONS && \
   ldconfig -v && \
   cd / && rm -rf /tmp/ImageMagick-7.1.0-52 && \
   \

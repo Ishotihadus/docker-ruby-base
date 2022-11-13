@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ARG MAKE_OPTIONS=-j2
+ARG MAKE_OPTIONS=-j4
 
 ENV \
   GEM_HOME=/usr/local/bundle \
