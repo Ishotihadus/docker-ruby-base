@@ -1,4 +1,4 @@
-FROM ishotihadus/ruby-rapidjson:latest
+FROM ishotihadus/ruby-rmagick-gnuplot:latest
 
 RUN set -eux && \
   \
