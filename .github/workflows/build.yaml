@@ -182,3 +182,28 @@ jobs:
           file: Dockerfile_rmagick_gnuplot
           push: true
           tags: ishotihadus/ruby-rmagick-gnuplot:latest
+  ruby-rmagick-gnuplot-mysql:
+    name: build ishotihadus/ruby-rmagick-gnuplot-mysql
+    runs-on: ubuntu-latest
+    needs: ruby-rmagick-gnuplot
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ishotihadus
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: docker/metadata-action@v4
+        with:
+          images: ishotihadus/ruby-rmagick-gnuplot-mysql
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: Dockerfile_rmagick_gnuplot_mysql
+          key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot', 'Dockerfile_rmagick_gnuplot_mysql') }}-v2
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile_rmagick_gnuplot_mysql
+          push: true
+          tags: ishotihadus/ruby-rmagick-gnuplot-mysql:latest
