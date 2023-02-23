@@ -61,13 +61,13 @@ RUN set -eux && \
   mkdir -p "$GEM_HOME" && chmod 777 "$GEM_HOME" && \
   \
   cd /tmp && \
-  curl -L https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.0.tar.gz | tar xzf - && \
-  cd /tmp/ruby-3.2.0 && \
+  curl -L https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.1.tar.gz | tar xzf - && \
+  cd /tmp/ruby-3.2.1 && \
   autoconf && \
   gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" && \
   ./configure --build="$gnuArch" --with-jemalloc --disable-install-doc --enable-shared --enable-yjit --disable-install-static-library && \
   make install $MAKE_OPTIONS_RUBY && \
-  cd / && rm -rf /tmp/ruby-3.2.0 && \
+  cd / && rm -rf /tmp/ruby-3.2.1 && \
   ldconfig -v && \
   \
   rustup self uninstall -y && \

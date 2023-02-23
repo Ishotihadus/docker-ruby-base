@@ -20,11 +20,11 @@ RUN set -eux && \
   locale-gen en_US.UTF-8 && \
   \
   cd /tmp && \
-  curl -L https://sourceforge.net/projects/gnuplot/files/gnuplot/5.4.5/gnuplot-5.4.5.tar.gz | tar xzf - && \
-  cd /tmp/gnuplot-5.4.5 && \
+  curl -L https://sourceforge.net/projects/gnuplot/files/gnuplot/5.4.6/gnuplot-5.4.6.tar.gz | tar xzf - && \
+  cd /tmp/gnuplot-5.4.6 && \
   ./configure && \
   make install && \
-  cd / && rm -rf /tmp/gnuplot-5.4.5 && \
+  cd / && rm -rf /tmp/gnuplot-5.4.6 && \
   \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false curl && \
   apt-get clean -y && rm -rf /var/lib/apt/lists/*
