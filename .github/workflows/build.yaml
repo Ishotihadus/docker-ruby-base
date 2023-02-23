@@ -21,7 +21,7 @@ jobs:
           path: Dockerfile
           key: ${{ hashFiles('Dockerfile') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile
@@ -49,7 +49,7 @@ jobs:
           path: Dockerfile_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_mysql
@@ -74,7 +74,7 @@ jobs:
           path: Dockerfile_node
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_node') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_node
@@ -99,7 +99,7 @@ jobs:
           path: Dockerfile_rapidjson
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_rapidjson
@@ -124,7 +124,7 @@ jobs:
           path: Dockerfile_rapidjson_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson', 'Dockerfile_rapidjson_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_rapidjson_mysql
@@ -149,7 +149,7 @@ jobs:
           path: Dockerfile_rmagick
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_rmagick
@@ -176,7 +176,7 @@ jobs:
           path: Dockerfile_rmagick_gnuplot
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_rmagick_gnuplot
@@ -201,7 +201,7 @@ jobs:
           path: Dockerfile_rmagick_gnuplot_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot', 'Dockerfile_rmagick_gnuplot_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           file: Dockerfile_rmagick_gnuplot_mysql
