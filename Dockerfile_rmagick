@@ -20,11 +20,11 @@ RUN set -eux && \
   rm -rf /var/lib/apt/lists/* && \
   \
   cd /tmp && \
-  curl -L https://imagemagick.org/download/ImageMagick-7.1.1-7.tar.gz | tar xzf - && \
-  cd /tmp/ImageMagick-7.1.1-7 && \
+  curl -L https://imagemagick.org/download/ImageMagick-7.1.1-8.tar.gz | tar xzf - && \
+  cd /tmp/ImageMagick-7.1.1-8 && \
   ./configure --enable-shared --with-modules --with-jemalloc --disable-docs && \
   make install $MAKE_OPTIONS && \
-  cd / && rm -rf /tmp/ImageMagick-7.1.1-7 && \
+  cd / && rm -rf /tmp/ImageMagick-7.1.1-8 && \
   ldconfig -v && \
   \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false curl && \
