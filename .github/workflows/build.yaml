@@ -7,7 +7,7 @@ jobs:
     name: build ishotihadus/ruby
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rapidjson
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -135,7 +135,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -162,7 +162,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rmagick
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
@@ -187,7 +187,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rmagick-gnuplot
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: docker/login-action@v2
         with:
           username: ishotihadus
