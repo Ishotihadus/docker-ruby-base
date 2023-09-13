@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
     needs: ruby
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -61,7 +61,7 @@ jobs:
     needs: ruby
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -86,7 +86,7 @@ jobs:
     needs: ruby
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -111,7 +111,7 @@ jobs:
     needs: ruby-rapidjson
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -136,7 +136,7 @@ jobs:
     needs: ruby
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -163,7 +163,7 @@ jobs:
     needs: ruby-rmagick
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -188,7 +188,7 @@ jobs:
     needs: ruby-rmagick-gnuplot
     steps:
       - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
