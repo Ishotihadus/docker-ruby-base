@@ -12,7 +12,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby
       - id: cache
@@ -40,7 +40,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-mysql
       - id: cache
@@ -65,7 +65,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-node
       - id: cache
@@ -90,7 +90,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rapidjson
       - id: cache
@@ -115,7 +115,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rapidjson-mysql
       - id: cache
@@ -140,7 +140,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick
       - id: cache
@@ -167,7 +167,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick-gnuplot
       - id: cache
@@ -192,7 +192,7 @@ jobs:
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick-gnuplot-mysql
       - id: cache
