@@ -22,7 +22,7 @@ RUN set -eux && \
   cd /tmp && \
   curl -L https://sourceforge.net/projects/gnuplot/files/gnuplot/5.4.9/gnuplot-5.4.9.tar.gz | tar xzf - && \
   cd /tmp/gnuplot-5.4.9 && \
-  ./configure && \
+  ./configure --with-qt=no && \
   make install && \
   cd / && rm -rf /tmp/gnuplot-5.4.9 && \
   \
