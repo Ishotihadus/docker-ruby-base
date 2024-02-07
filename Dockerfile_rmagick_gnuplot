@@ -11,6 +11,7 @@ RUN set -eux && \
   libgd-dev \
   libpango1.0-dev \
   locales \
+  qt4-dev-tools \
   && \
   \
   apt-get -y clean && \
