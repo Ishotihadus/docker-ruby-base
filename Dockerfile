@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ARG MAKE_OPTIONS_JEMALLOC
 ARG MAKE_OPTIONS_RUBY

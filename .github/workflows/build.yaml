@@ -7,12 +7,12 @@ jobs:
     name: build ishotihadus/ruby
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby
       - id: cache
@@ -21,7 +21,7 @@ jobs:
           path: Dockerfile
           key: ${{ hashFiles('Dockerfile') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile
@@ -35,12 +35,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-mysql
       - id: cache
@@ -49,7 +49,7 @@ jobs:
           path: Dockerfile_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_mysql
@@ -60,12 +60,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-node
       - id: cache
@@ -74,7 +74,7 @@ jobs:
           path: Dockerfile_node
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_node') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_node
@@ -85,12 +85,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rapidjson
       - id: cache
@@ -99,7 +99,7 @@ jobs:
           path: Dockerfile_rapidjson
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_rapidjson
@@ -110,12 +110,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rapidjson
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rapidjson-mysql
       - id: cache
@@ -124,7 +124,7 @@ jobs:
           path: Dockerfile_rapidjson_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rapidjson', 'Dockerfile_rapidjson_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_rapidjson_mysql
@@ -135,12 +135,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick
       - id: cache
@@ -149,7 +149,7 @@ jobs:
           path: Dockerfile_rmagick
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_rmagick
@@ -162,12 +162,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rmagick
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick-gnuplot
       - id: cache
@@ -176,7 +176,7 @@ jobs:
           path: Dockerfile_rmagick_gnuplot
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_rmagick_gnuplot
@@ -187,12 +187,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: ruby-rmagick-gnuplot
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         with:
           username: ishotihadus
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/metadata-action@v4
+      - uses: docker/metadata-action@v5
         with:
           images: ishotihadus/ruby-rmagick-gnuplot-mysql
       - id: cache
@@ -201,7 +201,7 @@ jobs:
           path: Dockerfile_rmagick_gnuplot_mysql
           key: ${{ hashFiles('Dockerfile', 'Dockerfile_rmagick', 'Dockerfile_rmagick_gnuplot', 'Dockerfile_rmagick_gnuplot_mysql') }}-v2
       - if: steps.cache.outputs.cache-hit != 'true'
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: Dockerfile_rmagick_gnuplot_mysql
