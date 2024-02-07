@@ -11,7 +11,6 @@ RUN set -eux && \
   libgd-dev \
   libpango1.0-dev \
   locales \
-  qtbase5-dev \
   && \
   \
   apt-get -y clean && \
@@ -23,7 +22,7 @@ RUN set -eux && \
   cd /tmp && \
   curl -L https://sourceforge.net/projects/gnuplot/files/gnuplot/6.0.0/gnuplot-6.0.0.tar.gz | tar xzf - && \
   cd /tmp/gnuplot-6.0.0 && \
-  ./configure && \
+  ./configure --without-latex --without-lua --with-qt=no && \
   make install && \
   cd / && rm -rf /tmp/gnuplot-6.0.0 && \
   \
